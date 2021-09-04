@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
+import 'package:ours_next/OursTheme.dart';
 import 'widgets/search.dart';
 import 'package:badges/badges.dart';
-
-final BoxShadow normalShadow = BoxShadow(offset: Offset(0, 4));
+import 'widgets/card.dart';
 
 main() {
   runApp(OursApp());
@@ -14,7 +14,7 @@ main() {
   SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       statusBarBrightness: Brightness.light, //light:亮色状态栏
-      systemNavigationBarColor: Color(0xffeeeeee));
+      systemNavigationBarColor: Colors.transparent);
 
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 }
@@ -41,13 +41,29 @@ class OursMain extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(color: Color(0xFFBE4749)),
       child: SafeArea(
+        bottom: true,
         child: Container(
           decoration: BoxDecoration(color: Color(0xffeeeeee)),
           child: Column(children: [
             OursAppBar(),
             Expanded(
-              child: Container(),
-            )
+                child: ScrollConfiguration(
+                    behavior: ScrollBehavior(),
+                    child: GlowingOverscrollIndicator(
+                        color: OursColorRedShadow,
+                        axisDirection: AxisDirection.down,
+                        child: ListView(
+                          children: [
+                            OursCard(),
+                            OursCard(),
+                            OursCard(),
+                            OursCard(),
+                            OursCard(),
+                            SizedBox(
+                              height: 200,
+                            )
+                          ],
+                        ))))
           ]),
         ),
       ),
@@ -65,40 +81,43 @@ class OursAppBar extends StatefulWidget {
 class _OursAppBarState extends State<OursAppBar> {
   @override
   Widget build(BuildContext context) {
-    return Material(
-        color: Color(0xFFBE4749),
-        child: Container(
-            height: 56,
-            decoration: BoxDecoration(color: Color(0xFFBE4749)),
-            child: Material(
-                color: Color(0xFFBE4749),
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                  child: Container(
-                    child: Row(
-                      children: [
-                        Expanded(child: OursSearchWidget()),
-                        SizedBox(width: 10),
-                        Badge(
-                          position: BadgePosition(top: 2, end: 8),
-                          badgeColor: Color(0xffE68E8F),
-                          child: Center(
-                            child: Ink(
-                              decoration:
-                                  BoxDecoration(color: Color(0xFFBE4749)),
-                              child: IconButton(
-                                padding: EdgeInsets.all(0),
-                                icon: const Icon(Icons.mail_outline),
-                                iconSize: 32,
-                                color: Color(0xffE68E8F),
-                                onPressed: () {},
+    return Container(
+        decoration: BoxDecoration(boxShadow: [normalShadow]),
+        child: Material(
+            color: Color(0xFFBE4749),
+            child: Container(
+                height: 56,
+                decoration: BoxDecoration(color: Color(0xFFBE4749)),
+                child: Material(
+                    color: Color(0xFFBE4749),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Expanded(child: OursSearchWidget()),
+                            SizedBox(width: 10),
+                            Badge(
+                              position: BadgePosition(top: 2, end: 8),
+                              badgeColor: Color(0xffE68E8F),
+                              child: Center(
+                                child: Ink(
+                                  decoration:
+                                      BoxDecoration(color: Color(0xFFBE4749)),
+                                  child: IconButton(
+                                    padding: EdgeInsets.all(0),
+                                    icon: const Icon(Icons.mail_outline),
+                                    iconSize: 32,
+                                    color: Color(0xffE68E8F),
+                                    onPressed: () {},
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ),
-                ))));
+                      ),
+                    )))));
   }
 }
