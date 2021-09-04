@@ -6,6 +6,10 @@ import 'widgets/search.dart';
 import 'package:badges/badges.dart';
 import 'widgets/card.dart';
 
+Future<void> _onRefresh() async {
+  await Future.delayed(Duration(milliseconds: 500));
+}
+
 main() {
   runApp(OursApp());
 
@@ -52,18 +56,22 @@ class OursMain extends StatelessWidget {
                     child: GlowingOverscrollIndicator(
                         color: OursColorRedShadow,
                         axisDirection: AxisDirection.down,
-                        child: ListView(
-                          children: [
-                            OursCard(),
-                            OursCard(),
-                            OursCard(),
-                            OursCard(),
-                            OursCard(),
-                            SizedBox(
-                              height: 200,
-                            )
-                          ],
-                        ))))
+                        child: RefreshIndicator(
+                            color: OursColorMainRed,
+                            onRefresh: _onRefresh,
+                            strokeWidth: 2.7,
+                            child: ListView(
+                              children: [
+                                OursCard(),
+                                OursCard(),
+                                OursCard(),
+                                OursCard(),
+                                OursCard(),
+                                SizedBox(
+                                  height: 200,
+                                )
+                              ],
+                            )))))
           ]),
         ),
       ),
