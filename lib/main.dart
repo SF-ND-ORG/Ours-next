@@ -7,7 +7,7 @@ import 'package:badges/badges.dart';
 import 'widgets/card.dart';
 
 Future<void> _onRefresh() async {
-  await Future.delayed(Duration(milliseconds: 500));
+  await Future.delayed(Duration(milliseconds: 200));
 }
 
 main() {
@@ -62,11 +62,13 @@ class OursMain extends StatelessWidget {
                             strokeWidth: 2.7,
                             child: ListView(
                               children: [
-                                OursCard(),
-                                OursCard(),
-                                OursCard(),
-                                OursCard(),
-                                OursCard(),
+                                OursCard(
+                                  padding: EdgeInsets.all(0),
+                                  margin: EdgeInsets.fromLTRB(26, 26, 26, 0),
+                                  child: Container(
+                                    height: 200,
+                                  ),
+                                ),
                                 SizedBox(
                                   height: 200,
                                 )

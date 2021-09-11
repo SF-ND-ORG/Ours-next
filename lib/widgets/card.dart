@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:ours_next/OursTheme.dart';
 
-class OursCard extends StatefulWidget {
-  const OursCard({Key? key}) : super(key: key);
+class OursCard extends StatelessWidget {
+  const OursCard({
+    Key? key,
+    required this.child,
+    required this.padding,
+    required this.margin,
+  }) : super(key: key);
 
-  @override
-  _OursCardState createState() => _OursCardState();
-}
+  final Widget child;
 
-class _OursCardState extends State<OursCard> {
+  final EdgeInsetsGeometry padding;
+
+  final EdgeInsetsGeometry margin;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(26, 26, 26, 0),
-      height: 200,
+      margin: this.margin,
+      padding: this.padding,
+      child: this.child,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         color: OursColorBrightGray,
