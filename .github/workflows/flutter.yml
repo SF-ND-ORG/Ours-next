@@ -6,7 +6,7 @@ on:
     - master
 jobs:
   build:
-    runs-on: latest-ubuntu
+    runs-on: Linux
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
