@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:ours_next/OursTheme.dart';
-import 'widgets/search.dart';
+import 'package:ours_next/data/OursPostData.dart';
+import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
+import 'widgets/OursSearchWidget.dart';
 import 'package:badges/badges.dart';
-import 'widgets/card.dart';
+import 'widgets/OursCardWidget.dart';
 
 Future<void> _onRefresh() async {
   await Future.delayed(Duration(milliseconds: 200));
@@ -62,13 +64,14 @@ class OursMain extends StatelessWidget {
                             strokeWidth: 2.7,
                             child: ListView(
                               children: [
-                                OursCard(
+                                OursCardWidget(
                                   padding: EdgeInsets.all(0),
                                   margin: EdgeInsets.fromLTRB(26, 26, 26, 0),
                                   child: Container(
                                     height: 200,
                                   ),
                                 ),
+                                OursPostCardWidget(postdata: OursPostData()),
                                 SizedBox(
                                   height: 200,
                                 )

@@ -76,3 +76,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: SourceHanSerif
+      fonts:
+        - asset: fonts/SourceHanSerifCN-SemiBold.otf
+          weight: 300
+        - asset: fonts/SourceHanSerifCN-Heavy.otf
+          weight: 600
