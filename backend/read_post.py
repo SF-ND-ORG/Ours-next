@@ -9,7 +9,8 @@ if not os.path.exists("config.json"):
         'mysql_server': '127.0.0.1',
         'mysql_user': 'root',
         'mysql_pass': 'your_passwd',
-        'database_name': 'your_database_name'
+        'database_name': 'your_database_name',
+        'mysql_port' : 'your_port'
     }
     fl=open("config.json","w")
     fl.write(json.dumps(fl_data))
@@ -20,7 +21,7 @@ else:
     fl=open("config.json","r")
     cfg=json.loads(fl.read())
 
-db = MySQLdb.connect(cfg['mysql_server'], cfg['mysql_user'], cfg['mysql_pass'], cfg['database_name'], charset='utf8' ) 
+db = MySQLdb.connect(cfg['mysql_server'], cfg['mysql_user'], cfg['mysql_pass'], cfg['database_name'], charset='utf8',port=cfg['mysql_port'] ) 
 cursor = db.cursor()
 app = Flask(__name__)
 
@@ -39,7 +40,7 @@ def posts():
         post['text'] = results[0][3]
         pic_num = results[0][4]
         post['pics'] = str(results[0][5]).split("|",pic_num-1)
-        return json.dumps(post)
+        return json.dumps(post, ensure_ascii=False)
     #if request.method == "POST":
         #data = json.loads(request.get_data())
         
