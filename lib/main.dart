@@ -78,7 +78,7 @@ class OursMain extends StatelessWidget {
           decoration: BoxDecoration(color: Color(0xffeeeeee)), //白色背景
           child: Column(children: [
             OursAppBar(),
-            // 页面顶部栏。详见 [OursAppBar()]
+            // 页面顶部栏。详见 [OursAppBar]
 
             Expanded(
                 //body部分
