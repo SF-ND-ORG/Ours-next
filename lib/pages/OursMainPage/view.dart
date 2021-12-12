@@ -10,11 +10,7 @@ class OursMainPage extends GetView<OursMainPageController> {
   Widget build(BuildContext context) {
     return GetBuilder<OursMainPageController>(
       builder: (_) {
-        return Scaffold(
-          body: SafeArea(
-            child: _buildView(),
-          ),
-        );
+        return 
       },
     );
   }

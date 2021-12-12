@@ -24,14 +24,14 @@ class OursPostDetailPage extends StatelessWidget {
           child: ListView(children: [
             Container(
               child: Padding(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.all(28),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       postData.title,
                       style: TextStyle(
-                          fontSize: 56,
+                          fontSize: 24,
                           fontFamily: "SourceHanSerif",
                           fontWeight: FontWeight.w800),
                     ),
@@ -41,7 +41,7 @@ class OursPostDetailPage extends StatelessWidget {
                     Text(
                       postData.author,
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.grey),
                     ),
@@ -51,7 +51,7 @@ class OursPostDetailPage extends StatelessWidget {
                     Text(
                       postData.content,
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 16,
                           fontFamily: "SourceHanSerif",
                           fontWeight: FontWeight.w600),
                     ),
