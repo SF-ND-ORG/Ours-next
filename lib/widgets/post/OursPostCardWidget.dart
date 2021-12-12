@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ours_next/data/OursPostData.dart';
-import 'package:ours_next/pages/OursPostDetailPage.dart';
+import 'package:ours_next/pages/OursPostDetailPage/OursPostDetailPage.dart';
 import 'package:ours_next/widgets/OursCardWidget.dart';
 
 class OursPostCardWidget extends StatelessWidget {
