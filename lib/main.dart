@@ -7,11 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ours_next/pages/OursMainPage/view.dart';
 import 'package:get/get.dart';
+import 'package:ours_next/widgets/OursAppBar.dart';
+import 'package:ours_next/widgets/OursCardWidget.dart';
+import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
+
+import 'OursTheme.dart';
+import 'common/routes/OursRoutePages.dart';
+import 'data/OursPostEntity.dart';
+
+Future<void> _onRefresh() async {
+  await Future.delayed(Duration(milliseconds: 200));
+}
 
 ///
-/// 函数名 - [main()]
+/// 函数名 - [main]
 /// 描述 - Ours主函数
 ///
+
 main() {
   runApp(OursApp());
 
@@ -32,28 +44,13 @@ main() {
 
 class OursApp extends StatelessWidget {
   const OursApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "ours", //App标题
-      initialRoute: "/", //起始路由
-      routes: {
-        //命名路由表
-        "/": (context) => Scaffold(
-              body: OursMainPage(),
-            ),
-      },
+      getPages: AppPages.routes,
+      initialRoute: AppPages.INITIAL,
     );
   }
 }
-
-// class OursMainPage extends StatelessWidget {
-//   const OursMainPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return 
-//   }
-// }

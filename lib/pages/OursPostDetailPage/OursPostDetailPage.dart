@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ours_next/OursTheme.dart';
-import 'package:ours_next/data/OursPostData.dart';
+import 'package:ours_next/data/OursPostEntity.dart';
 import 'package:get/get.dart';
 
 class OursPostDetailPage extends StatelessWidget {
   const OursPostDetailPage({Key? key, required this.postData})
       : super(key: key);
 
-  final OursPostData postData;
+  final OursPostEntity postData;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,8 @@ class OursPostDetailPage extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontFamily: "SourceHanSerif",
-                          fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.none),
                     ),
                   ],
                 ),
