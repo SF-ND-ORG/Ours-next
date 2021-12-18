@@ -38,7 +38,7 @@ def GetPost(post_id):
     post = {}
     post['time'] = results[0][1].isoformat()
     post['author'] = results[0][2]
-    post['text'] = results[0][3]
+    post['content'] = results[0][3]
     pic_num = results[0][4]
     post['pics'] = str(results[0][5]).split("|", pic_num-1)
     return json.dumps(post, ensure_ascii=False)
@@ -61,7 +61,10 @@ def GetPostsList():
         post = {}
         post['time'] = item[1].isoformat()
         post['author'] = item[2]
-        post['text'] = item[3]
+        if len(item[3]) > 40:
+            post['summary'] = item[3][:40]+"……"
+        else:
+            post['summary'] = item[3]
         pic_num = item[4]
         post['pics'] = str(item[5]).split("|", pic_num-1)
         res.append(post)
