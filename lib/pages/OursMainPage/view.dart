@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ours_next/OursTheme.dart';
 import 'package:ours_next/data/OursPostEntity.dart';
+import 'package:ours_next/pages/OursMainPage/widgets/OursMainPagePostsList.dart';
 import 'package:ours_next/widgets/OursAppBar.dart';
 import 'package:ours_next/widgets/OursCardWidget.dart';
 import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
 
 import 'index.dart';
-
-Future<void> _onRefresh() async {
-  await Future.delayed(Duration(milliseconds: 200));
-}
 
 class OursMainPage extends GetView<OursMainPageController> {
   const OursMainPage({Key? key}) : super(key: key);
@@ -38,10 +35,15 @@ class OursMainPage extends GetView<OursMainPageController> {
                                 axisDirection: AxisDirection.down,
                                 child: RefreshIndicator(
                                     color: OursColorMainRed,
-                                    onRefresh: _onRefresh,
+                                    onRefresh: controller.onRefresh,
                                     strokeWidth: 2.7,
                                     child: ListView(
-                                      children: [],
+                                      children: [
+                                        OursMainPagePostsList(),
+                                        SizedBox(
+                                          height: 200,
+                                        )
+                                      ],
                                     )))))
                   ]),
                 ))));

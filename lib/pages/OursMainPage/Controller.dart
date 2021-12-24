@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ours_next/common/apis/OursApis.dart';
 
 import 'index.dart';
 
@@ -7,12 +8,15 @@ class OursMainPageController extends GetxController {
 
   final state = OursMainPageState();
 
-  // tap
-  void handleTap(int index) {
-    Get.snackbar(
-      "标题",
-      "消息",
-    );
+  // 下拉刷新
+  Future<void> onRefresh() async {
+    await asyncLoadAllData();
+  }
+
+  // 拉取数据
+  asyncLoadAllData() async {
+    state.postslist =
+        await OursPostsAPI.getOursPostsList().then((value) => value.items);
   }
 
   /// 在 widget 内存中分配后立即调用。
@@ -25,6 +29,7 @@ class OursMainPageController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    asyncLoadAllData();
   }
 
   /// 在 [onDelete] 方法之前调用。

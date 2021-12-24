@@ -13,4 +13,9 @@ class OursPostEntity {
       this.author = "测试作者",
       this.title = "测试标题",
       this.id = 1});
+  factory OursPostEntity.fromJson(Map<String, dynamic> json) => OursPostEntity(
+        time: json["time"],
+        content: json["summary"],
+        author: json["author"],
+      );
 }
