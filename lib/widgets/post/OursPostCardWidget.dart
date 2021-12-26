@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ours_next/data/OursPostData.dart';
-import 'package:ours_next/pages/OursPostDetailPage.dart';
+import 'package:ours_next/data/OursPostEntity.dart';
+import 'package:ours_next/pages/OursPostDetailPage/OursPostDetailPage.dart';
 import 'package:ours_next/widgets/OursCardWidget.dart';
 
 class OursPostCardWidget extends StatelessWidget {
-  const OursPostCardWidget({Key? key, this.postdata = const OursPostData()})
+  const OursPostCardWidget({Key? key, this.postdata = const OursPostEntity()})
       : super(key: key);
 
-  final OursPostData postdata;
+  final OursPostEntity postdata;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +26,7 @@ class OursPostCardWidget extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(26, 26, 26, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 postdata.title,
