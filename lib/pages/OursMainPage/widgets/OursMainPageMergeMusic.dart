@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ours_next/OursTheme.dart';
 import 'package:ours_next/common/services/OursMusicService.dart';
 import 'package:ours_next/common/widgets/MusicPlayerController.dart';
 import 'package:ours_next/widgets/OursCardWidget.dart';
@@ -18,6 +19,9 @@ class OursMainPageMergeMusic extends GetView<OursMusicController> {
         child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           Obx(
             () => Slider(
+              thumbColor: OursColorBrightStandOutRed,
+              activeColor: OursColorMainRed,
+              inactiveColor: OursColorStandOutRed,
               value: controller.percent.value,
               onChangeStart: (v) {
                 controller.isTouch = true;
