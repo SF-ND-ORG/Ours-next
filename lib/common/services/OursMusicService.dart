@@ -34,7 +34,7 @@ class OursMusicController extends GetxController {
     // Try to load audio from a source and catch any errors.
     try {
       duration = await player.setAudioSource(AudioSource.uri(Uri.parse(
-          "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")));
+          "http://m7.music.126.net/20220106224557/004e0704a2cc32eeb7f3d6ed6112c19d/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/2736681512/da39/fb81/6671/34c0a0742af5c9ae9ada9ad1716ddbb0.mp3")));
     } catch (e) {
       print("Error loading audio source: $e");
     }
@@ -53,7 +53,6 @@ class OursMusicController extends GetxController {
       v = v > 1 ? 1 : v;
       v = v < 0 ? 0 : v;
       percent.value = v;
-      print(v);
     }
   }
 

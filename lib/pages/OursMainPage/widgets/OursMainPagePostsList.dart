@@ -8,14 +8,29 @@ class OursMainPagePostsList extends GetView<OursMainPageController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => controller.state.postslist == null
-        ? Container()
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: controller.state.postslist.map<Widget>((item) {
+    return Obx(() {
+      List<Widget> columnChildren = controller.state.postslist == null
+          ? <Widget>[]
+          : controller.state.postslist.map<Widget>((item) {
               return OursPostCardWidget(
                 postdata: item,
               );
-            }).toList()));
+            }).toList();
+      columnChildren.insert(
+        0,
+        Text(
+          "文",
+          style: TextStyle(
+              fontSize: 24,
+              fontFamily: "SourceHanSerif",
+              fontWeight: FontWeight.w800),
+        ).marginOnly(left: 36, top: 30),
+      );
+      return controller.state.postslist == null
+          ? Container()
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: columnChildren);
+    });
   }
 }

@@ -31,7 +31,7 @@ class OursPostCardWidget extends StatelessWidget {
               Text(
                 postdata.title,
                 style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 20,
                     fontFamily: "SourceHanSerif",
                     fontWeight: FontWeight.w800),
               ),
