@@ -46,7 +46,7 @@ class OursMainPage extends GetView<OursMainPageController> {
                                         ),
                                         OursMainPageMergeMusic(),
                                         SizedBox(
-                                          height: 12,
+                                          height: 8,
                                         ),
                                         OursMainPagePostsList(),
                                         SizedBox(

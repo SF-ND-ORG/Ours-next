@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class Song {
   Song({
     this.name = '',
@@ -16,7 +14,7 @@ class Song {
   //歌曲封面url
   String picurl;
   //歌曲文件url
-  String url;
+  final String url;
   //歌曲专辑
   String album;
 }

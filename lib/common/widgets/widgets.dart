@@ -1,5 +1,5 @@
 library widgets;
 
-export 'MusicPlayerController.dart';
+export 'MusicPlayerControllWidget.dart';
 export 'MusicSeekBar.dart';
 export 'widgets.dart';
