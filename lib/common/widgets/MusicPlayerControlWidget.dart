@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ours_next/common/services/OursMusicService.dart';
 
-class MusicPlayerControllWidget extends GetWidget<OursMusicController> {
+class MusicPlayerControlWidget extends GetWidget<OursMusicController> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -12,16 +12,16 @@ class MusicPlayerControllWidget extends GetWidget<OursMusicController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            IconButton(
-                iconSize: 48,
-                onPressed: controller.nextSong,
-                icon: Icon(Icons.skip_next_sharp)),
             Obx(() => IconButton(
                 iconSize: 48,
                 onPressed: controller.onPlayPauseButton,
                 icon: Icon(controller.playing.value
                     ? Icons.pause
                     : Icons.play_arrow))),
+            IconButton(
+                iconSize: 48,
+                onPressed: controller.nextSong,
+                icon: Icon(Icons.skip_next_sharp)),
           ],
         ));
   }

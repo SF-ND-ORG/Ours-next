@@ -25,7 +25,7 @@ class OursMainPageController extends GetxController {
     super.onInit();
   }
 
-  /// 在 onInit() 之后调用 1 帧。这是进入的理想场所
+  /// 在 [onInit] 之后调用 1 帧。这是进入的理想场所
   @override
   void onReady() {
     super.onReady();
@@ -38,7 +38,7 @@ class OursMainPageController extends GetxController {
     super.onClose();
   }
 
-  /// dispose 释放内存
+  /// [dispose] 释放内存
   @override
   void dispose() {
     super.dispose();

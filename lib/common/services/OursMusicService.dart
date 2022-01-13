@@ -20,7 +20,7 @@ class OursMusicController extends GetxController {
 
   final currentTime = 0.obs; // 已播放时间
 
-  final playList = <Song>[].obs; // 播放列表
+  final RxList<Song> playList = <Song>[].obs; // 播放列表
 
   final currentIndex = 0.obs; // 当前歌曲索引
 

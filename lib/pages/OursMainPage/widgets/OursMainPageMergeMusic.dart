@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:ours_next/OursTheme.dart';
 import 'package:ours_next/common/services/OursMusicService.dart';
 import 'package:ours_next/common/utils/utils.dart';
-import 'package:ours_next/common/widgets/MusicPlayerControllWidget.dart';
+import 'package:ours_next/common/widgets/MusicPlayerControlWidget.dart';
+import 'package:ours_next/common/widgets/MusicPlayerPlayListWidget.dart';
 import 'package:ours_next/widgets/OursCardWidget.dart';
 import 'package:ours_next/common/widgets/widgets.dart';
 
@@ -64,8 +65,9 @@ class OursMainPageMergeMusic extends GetView<OursMusicController> {
                 ),
                 SizedBox(
                   height: 100,
-                  child: Center(child: MusicPlayerControllWidget()),
-                )
+                  child: Center(child: MusicPlayerControlWidget()),
+                ),
+                MusicPlayerPlayListWidget()
               ]),
         ),
       )
