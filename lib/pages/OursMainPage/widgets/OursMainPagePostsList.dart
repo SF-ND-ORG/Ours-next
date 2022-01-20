@@ -24,7 +24,7 @@ class OursMainPagePostsList extends GetView<OursMainPageController> {
               fontSize: 24,
               fontFamily: "SourceHanSerif",
               fontWeight: FontWeight.w800),
-        ).marginOnly(left: 36, top: 30),
+        ).marginOnly(left: 36, top: 20),
       );
       return controller.state.postslist == null
           ? Container()

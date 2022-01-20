@@ -41,13 +41,7 @@ class OursMainPage extends GetView<OursMainPageController> {
                                     strokeWidth: 2.7,
                                     child: ListView(
                                       children: [
-                                        SizedBox(
-                                          height: 8,
-                                        ),
                                         OursMainPageMergeMusic(),
-                                        SizedBox(
-                                          height: 8,
-                                        ),
                                         OursMainPagePostsList(),
                                         SizedBox(
                                           height: 200,

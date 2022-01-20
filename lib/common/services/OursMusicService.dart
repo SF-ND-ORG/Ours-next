@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_session/audio_session.dart';
@@ -20,17 +18,19 @@ class OursMusicController extends GetxController {
 
   final currentTime = 0.obs; // 已播放时间
 
-  final RxList<Song> playList = <Song>[].obs; // 播放列表
+  final RxList<OursSong> playList = <OursSong>[].obs; // 播放列表
 
   final currentIndex = 0.obs; // 当前歌曲索引
 
-  final Rx<Song?> currentSong = Rx<Song?>(null); // 当前歌曲
+  final Rx<OursSong?> currentSong = Rx<OursSong?>(null); // 当前歌曲
 
   int get songCount => playList.length; // 播放列表长度
 
   final playing = false.obs; // 是否正在播放
 
   Future<void> initMusicPlayer() async {
+    addSong(
+        OursSong(mid: "C1431292823", type: "music", name: '夜航星', artist: ['']));
     player.stop();
     // Inform the operating system of our app's audio attributes etc.
     // We pick a reasonable default for an app that plays speech.
@@ -44,20 +44,8 @@ class OursMusicController extends GetxController {
 
     Duration? duration;
 
-    // Try to load audio from a source and catch any errors.
-    try {
-      duration = await player.setAudioSource(AudioSource.uri(Uri.parse(
-          "http://m8.music.126.net/20220107151519/cd93766499caf90af26702c24547cec2/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/2736681512/da39/fb81/6671/34c0a0742af5c9ae9ada9ad1716ddbb0.mp3")));
-    } catch (e) {
-      print("Error loading audio source: $e");
-    }
-    addSong(Song(
-        name: "夜航星",
-        url:
-            "http://m8.music.126.net/20220107151519/cd93766499caf90af26702c24547cec2/ymusic/obj/w5zDlMODwrDDiGjCn8Ky/2736681512/da39/fb81/6671/34c0a0742af5c9ae9ada9ad1716ddbb0.mp3"));
-    addSong(Song(
-        url:
-            "https://su-ours-public.oss-cn-hangzhou.aliyuncs.com/ori/bili/av542669404_1.aac"));
+    nextSong();
+
     currentSong.value = playList[currentIndex.value];
     totalTime.value = duration?.inSeconds.toDouble() ?? 0;
   }
@@ -99,8 +87,24 @@ class OursMusicController extends GetxController {
     }
   }
 
-  addSong(Song song) {
+  addSong(OursSong song) {
     playList.add(song);
+  }
+
+  playSong(OursSong s) async {
+    pause();
+    addSong(s);
+    currentIndex.value = songCount - 1;
+    currentSong.value = playList[currentIndex.value];
+    Duration? duration;
+    try {
+      duration = await player.setAudioSource(
+          AudioSource.uri(Uri.parse(await currentSong.value!.getUrl())));
+    } catch (e) {
+      print("Error loading audio source: $e");
+    }
+    totalTime.value = duration?.inSeconds.toDouble() ?? 0;
+    play();
   }
 
   nextSong() async {
@@ -113,8 +117,8 @@ class OursMusicController extends GetxController {
     currentSong.value = playList[currentIndex.value];
     Duration? duration;
     try {
-      duration = await player
-          .setAudioSource(AudioSource.uri(Uri.parse(currentSong.value!.url)));
+      duration = await player.setAudioSource(
+          AudioSource.uri(Uri.parse(await currentSong.value!.getUrl())));
     } catch (e) {
       print("Error loading audio source: $e");
     }

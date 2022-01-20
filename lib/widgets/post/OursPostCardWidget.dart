@@ -23,7 +23,7 @@ class OursPostCardWidget extends StatelessWidget {
         },
         child: OursCardWidget(
           padding: EdgeInsets.all(20),
-          margin: EdgeInsets.fromLTRB(26, 26, 26, 0),
+          margin: EdgeInsets.fromLTRB(26, 20, 26, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

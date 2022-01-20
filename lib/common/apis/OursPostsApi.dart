@@ -1,5 +1,4 @@
 import 'package:ours_next/common/utils/utils.dart';
-import 'package:ours_next/data/OursPostEntity.dart';
 import 'package:ours_next/data/OursPostListResponseEntity.dart';
 
 class OursPostsAPI {
