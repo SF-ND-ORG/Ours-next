@@ -1,10 +1,7 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:ours_next/common/utils/utils.dart';
 import 'package:ours_next/data/OursMusicSearchEntity.dart';
-import 'package:ours_next/data/OursPostListResponseEntity.dart';
-import 'package:ours_next/data/OursSong.dart';
 
 class OursMergeMusicAPI {
   static Future<OursMusicSearchResponseEntity> search(

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ours_next/OursTheme.dart';
-import 'package:ours_next/common/services/OursMusicService.dart';
-import 'package:ours_next/data/OursPostEntity.dart';
 import 'package:ours_next/pages/OursMainPage/widgets/OursMainPageMergeMusic.dart';
 import 'package:ours_next/pages/OursMainPage/widgets/OursMainPagePostsList.dart';
 import 'package:ours_next/widgets/OursAppBar.dart';
-import 'package:ours_next/widgets/OursCardWidget.dart';
-import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
 
 import 'index.dart';
 

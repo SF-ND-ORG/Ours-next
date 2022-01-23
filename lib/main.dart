@@ -5,19 +5,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ours_next/pages/OursMainPage/view.dart';
 import 'package:get/get.dart';
-import 'package:ours_next/widgets/OursAppBar.dart';
-import 'package:ours_next/widgets/OursCardWidget.dart';
-import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
-
-import 'OursTheme.dart';
 import 'common/routes/OursRoutePages.dart';
-import 'data/OursPostEntity.dart';
-
-Future<void> _onRefresh() async {
-  await Future.delayed(Duration(milliseconds: 200));
-}
 
 ///
 /// 函数名 - [main]
