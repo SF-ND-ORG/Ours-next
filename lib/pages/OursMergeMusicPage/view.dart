@@ -60,18 +60,23 @@ class OursMergeMusicPage extends GetView<OursMergeMusicPageController> {
                                                           TextOverflow.ellipsis,
                                                     ),
                                                   ),
-                                                  Text(
-                                                      element.artist == null
-                                                          ? ''
-                                                          : " - " +
-                                                              element
-                                                                  .artist![0],
-                                                      style: TextStyle(
-                                                        fontSize: 10,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: OursColorMainRed,
-                                                      )),
+                                                  Expanded(
+                                                    child: Text(
+                                                        element.artist == null
+                                                            ? ''
+                                                            : " - " +
+                                                                element
+                                                                    .artist![0],
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color:
+                                                              OursColorMainRed,
+                                                        )),
+                                                  ),
                                                   Spacer(),
                                                   IconButton(
                                                       onPressed: () {

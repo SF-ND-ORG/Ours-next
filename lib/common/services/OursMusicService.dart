@@ -29,8 +29,6 @@ class OursMusicController extends GetxController {
   final playing = false.obs; // 是否正在播放
 
   Future<void> initMusicPlayer() async {
-    addSong(
-        OursSong(mid: "C1431292823", type: "music", name: '夜航星', artist: ['']));
     player.stop();
     // Inform the operating system of our app's audio attributes etc.
     // We pick a reasonable default for an app that plays speech.
@@ -41,13 +39,6 @@ class OursMusicController extends GetxController {
         onError: (Object e, StackTrace stackTrace) {
       print('A stream error occurred: $e');
     });
-
-    Duration? duration;
-
-    nextSong();
-
-    currentSong.value = playList[currentIndex.value];
-    totalTime.value = duration?.inSeconds.toDouble() ?? 0;
   }
 
   // 控制播放
@@ -88,13 +79,36 @@ class OursMusicController extends GetxController {
   }
 
   addSong(OursSong song) {
-    playList.add(song);
+    if (playList.every((element) => element.mid != song.mid)) {
+      playList.add(song);
+    }
   }
 
   playSong(OursSong s) async {
     pause();
     addSong(s);
     currentIndex.value = songCount - 1;
+    currentSong.value = playList[currentIndex.value];
+    Duration? duration;
+    try {
+      duration = await player.setAudioSource(
+          AudioSource.uri(Uri.parse(await currentSong.value!.getUrl())));
+    } catch (e) {
+      print("Error loading audio source: $e");
+    }
+    totalTime.value = duration?.inSeconds.toDouble() ?? 0;
+    play();
+  }
+
+  toSong(OursSong s) async {
+    if (currentSong.value == null) {
+      return;
+    }
+    if (currentSong.value!.mid == s.mid) {
+      return;
+    }
+    pause();
+    currentIndex.value = playList.indexOf(s);
     currentSong.value = playList[currentIndex.value];
     Duration? duration;
     try {
@@ -124,6 +138,22 @@ class OursMusicController extends GetxController {
     }
     totalTime.value = duration?.inSeconds.toDouble() ?? 0;
     play();
+  }
+
+  removeSong(OursSong s) async {
+    if (playList.indexOf(s) == currentIndex.value) {
+      return;
+    }
+    if (songCount > 1) {
+      playList.remove(s);
+      nextSong();
+    } else {
+      pause();
+      playList.remove(s);
+      currentSong.value = null;
+      totalTime.value = 0;
+      currentTime.value = 0;
+    }
   }
 
   /// 在 widget 内存中分配后立即调用。
