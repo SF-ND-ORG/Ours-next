@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ours_next/OursTheme.dart';
 import 'package:ours_next/widgets/OursSearchWidget.dart';
 import 'package:badges/badges.dart';
+import 'package:get/get.dart';
+import 'package:ours_next/common/routes/OursRouteNames.dart';
 
 class OursAppBar extends StatefulWidget {
   const OursAppBar({Key? key}) : super(key: key);
@@ -42,7 +44,9 @@ class _OursAppBarState extends State<OursAppBar> {
                                     icon: const Icon(Icons.mail_outline),
                                     iconSize: 32,
                                     color: Color(0xffE68E8F),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.toNamed(AppRoutes.ANNOUNCEMENT);
+                                    },
                                   ),
                                 ),
                               ),

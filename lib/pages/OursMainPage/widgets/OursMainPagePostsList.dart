@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:ours_next/pages/OursMainPage/controller.dart';
 import 'package:ours_next/widgets/post/OursPostCardWidget.dart';
+import 'package:ours_next/pages/OursMainPage/controller.dart';
 
 class OursMainPagePostsList extends GetView<OursMainPageController> {
   OursMainPagePostsList();
