@@ -24,11 +24,15 @@ dependencies:
   flutter:
     sdk: flutter
   badges: ^2.0.1
+  get:
+  dio:
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  sums_inner: ^1.0.0+1
+  just_audio: ^0.9.18
 
 dev_dependencies:
   flutter_test:
@@ -75,3 +79,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  fonts:
+    - family: SourceHanSerif
+      fonts:
+        - asset: fonts/SourceHanSerifCN-SemiBold.otf
+          weight: 300
+        - asset: fonts/SourceHanSerifCN-Heavy.otf
+          weight: 600
