@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ours_next/OursTheme.dart';
 import 'package:ours_next/data/OursPostEntity.dart';
-import 'package:get/get.dart';
 
 class OursPostDetailPage extends StatelessWidget {
   const OursPostDetailPage({Key? key, required this.postData})

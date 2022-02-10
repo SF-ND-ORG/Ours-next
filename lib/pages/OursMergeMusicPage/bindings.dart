@@ -3,10 +3,11 @@ import 'package:ours_next/common/services/OursMusicService.dart';
 
 import 'controller.dart';
 
-class OursMainPageBinding implements Bindings {
+class OursMergeMusicPageBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<OursMainPageController>(() => OursMainPageController());
+    Get.lazyPut<OursMergeMusicPageController>(
+        () => OursMergeMusicPageController());
     Get.lazyPut<OursMusicController>(() => OursMusicController());
   }
 }

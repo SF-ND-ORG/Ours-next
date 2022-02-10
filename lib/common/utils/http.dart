@@ -73,6 +73,7 @@ class HttpUtil {
       queryParameters: queryParameters,
       options: requestOptions,
     );
+    print(response.data);
     return response.data;
   }
 

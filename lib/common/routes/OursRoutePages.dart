@@ -1,3 +1,5 @@
+import 'package:ours_next/pages/OursMergeMusicPage/index.dart';
+
 import 'OursRoutes.dart';
 import 'package:ours_next/pages/OursMainPage/index.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,14 @@ class AppPages {
       name: AppRoutes.INITIAL,
       page: () => OursMainPage(),
       binding: OursMainPageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.OursMergeMusicPageRouteName,
+      page: () => OursMergeMusicPage(),
+      binding: OursMergeMusicPageBinding(),
+      curve: Curves.easeInOutQuad,
+      transition: Transition.rightToLeft,
+      transitionDuration: Duration(milliseconds: 250),
     ),
   ];
 
